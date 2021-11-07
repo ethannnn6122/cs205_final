@@ -9,3 +9,21 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
+
+#!/bin/bash
+
+# Sets a variable to the number of hp in the list.
+awk 'END{print hp+=$6}' pokemon.dat
+
+# Counts the number of lines in the file
+awk 'END{print sum=NR}' pokemon.dat
+
+# Counts the number of attack items in the list.
+awk 'END{print attack+=$7}' pokemon.dat
+
+# Prints out the output while doing simple computations
+echo "======= SUMMARY OF POKEMON.DAT ======"
+echo "   Total Pokemon: $SUM"
+echo "   Avg. HP: $((HP/SUM))"
+echo "   Avg. Attack: $((ATTACK/SUM)) "
+echo "======= END SUMMARY ======="
